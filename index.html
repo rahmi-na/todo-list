@@ -1,0 +1,174 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>To Do List | jQuery</title>
+  <!--  Meta tag for mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="theme-color" content="#888888" />
+  <!--  Normalize.css for reducing cross browser issues -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+  <!-- Compiled Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!-- Source Sans Pro Font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700,600italic"
+    rel="stylesheet" type="text/css" />
+  <!-- Google material icons for use of icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+
+<body>
+  <header>
+    <h2 class="judul">Modul 2</h2>
+    <nav>
+      <ul class="menu">
+        <li><a href="http://modul-2.com/">home</a></li>
+        <li><a href="http://modul-2.com/#content">profile</a></li>
+        <li><a href="http://list.modul-2.com">list</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="kiri">
+      <div class="containerKiri">
+        <h2 class="kategori">Categories</h2>
+        <ul class="list">
+          <a href="#news" class="list_kat">News</a>
+        </ul>
+        <ul class="list">
+          <a href="#interview" class="list_kat">Interview</a>
+        </ul>
+      </div>
+    </div>
+    <div class="tengah dark">
+      <section class="todo-list-wrapper">
+        <div class="todo-list-container">
+          <figure>
+            <img src="icons-logo.png" class="logo-icons" alt="" />
+          </figure>
+          <div class="mark-all-tasks">
+            <div class="mark-all-tasks-container">
+              <span class="mark-all-btn" role="button" id="mark-all-finished">
+                <span class="btn-label">Mark all as finished</span>
+                <span class="action-circle completed">
+                  <i class="material-icons">check</i>
+                </span>
+              </span>
+              <span class="mark-all-btn move-down" role="button" id="mark-all-incomplete">
+                <span class="btn-label">Mark all as Incomplete</span>
+                <span class="action-circle">
+                  <i class="material-icons">check</i>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="todo-list-header">
+            <h3>My To-Do List . . .</h3>
+          </div>
+          <div class="todo-list-body">
+            <ul id="todo-list">
+              <li class="task">
+                <div class="task-container">
+                  <span class="task-label">Do Weekly Shopping</span>
+                  <span class="task-action-btn">
+                    <span class="action-circle large delete-btn" title="Delete Task">
+                      <i class="material-icons">delete</i>
+                    </span>
+                    <span class="action-circle large complete-btn" title="Mark Complete">
+                      <i class="material-icons">check</i>
+                    </span>
+                  </span>
+                </div>
+              </li>
+              <li class="completed task">
+                <div class="task-container">
+                  <span class="task-label">Buy Textbooks</span>
+                  <span class="task-action-btn">
+                    <span class="action-circle large delete-btn" title="Delete Task">
+                      <i class="material-icons">delete</i>
+                    </span>
+                    <span class="action-circle large complete-btn" title="Mark Incomplete">
+                      <i class="material-icons">check</i>
+                    </span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="todo-list-footer">
+            <h3>Things I should do next . . .</h3>
+            <div class="add-task-btn-wrapper">
+              <span class="add-task-btn">
+                <i class="material-icons">add</i>
+              </span>
+            </div>
+            <div class="new-task-wrapper">
+              <textarea id="new-task" placeholder="Enter new task here. . ."></textarea>
+              <span class="error-message hidden">You need to enter a task first</span>
+              <span class="add-new-task-btn btn" id="add-task">Add Task</span>
+              <span class="cancel-btn btn" id="close-task-panel">Close</span>
+            </div>
+          </div>
+        </div>
+        <div class="clear">
+          <span class="clear-all">Clear All</span>
+        </div>
+      </section>
+      <div class="notification-popup hide">
+        <p>
+          <span class="task"></span>
+          <span class="notification-text"></span>
+        </p>
+      </div>
+    </div>
+    <div class="kanan">
+      <div class="search_wrap search_wrap_3">
+        <div class="search_box">
+          <input type="text" class="input" placeholder="search..." />
+          <div class="btn btn_common">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+      <div class="border">
+        <h3 class="kategori">Trend</h3>
+        <ul class="trend">
+          <a href="#news" class="subTrend">Readers's Most Anticipated Books of March</a>
+        </ul>
+        <ul class="trend">
+          <a href="" class="subTrend">45 of the Most Anticipated Sci-Fi and Fantasy Novels of 2021</a>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <footer class="footer-bawah">
+    2021 <br />
+    @copyright - Rahmi Nurazizah
+  </footer>
+
+  <!--  HTML Template for tasks-->
+  <script type="tect/template" id="task-template">
+    <li class="task">
+      	<div class="task-container">
+      		<span class="task-label"></span>
+      		<span class="task-action-btn">
+      			<span class="action-circle large delete-btn" title="Delete Task">
+      				<i class="material-icons">delete</i>
+      			</span>
+      			<span class="action-circle large complete-btn" title="Mark Complete">
+      				<i class="material-icons">check</i>
+      			</span>
+      		</span>
+      	</div>
+      </li>
+    </script>
+
+  <!-- Including jQuery from CDN -->
+  <script src="jquery.js"></script>
+  <!-- Including main JS file -->
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
